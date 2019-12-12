@@ -4,8 +4,9 @@ set -x
 set -eo pipefail
 
 whoami
+id
 
-sudo - ${USER}
+sudo - root
 
 git config -l
 
