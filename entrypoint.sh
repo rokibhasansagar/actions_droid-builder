@@ -3,6 +3,10 @@
 set -x
 set -eo pipefail
 
+whoami
+
+sudo - ${USER}
+
 git config -l
 
 git config --global user.email "rokibhasansagar2014@outlook.com" || true
