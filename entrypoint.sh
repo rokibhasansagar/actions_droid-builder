@@ -26,10 +26,7 @@ make -j32 recoveryimage
 
 echo $(pwd)
 
-which ghr
-
 mkdir release
-
-mv "$(pwd)/out/target/product/Primo_RX5/recovery.img" "$(pwd)/out/target/product/Primo_RX5/PitchBlack*.zip" release/
+mv "$(pwd)/out/target/product/Primo_RX5/recovery.img" "${PB_WORK}/${ZIP_NAME}.zip" release/
 
 ghr -t ${GitAllOAuth} -n "Test Release for Primo_RX5" -b "PBRP v2.9.0" -delete v1.0-test release/
