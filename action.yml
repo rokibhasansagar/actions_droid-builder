@@ -1,0 +1,14 @@
+name: 'Droid Builder Action'
+author: 'Rokib Hasan Sagar @rokibhasansagar'
+description: 'GitHub Actions for Android ROM Builds'
+# inputs:
+# outputs:
+runs:
+  using: 'docker'
+  image: 'Dockerfile' # 'docker://fr3akyphantom/actions_droid-builder:latest'
+#   env:
+#   entrypoint:
+#   args:
+branding:
+  icon: 'package'  
+  color: 'green'
