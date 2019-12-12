@@ -1,11 +1,11 @@
 #!/bin/bash
 
-set -x
 set -eo pipefail
 
 git config --global user.email "rokibhasansagar2014@outlook.com"
 git config --global user.name "rokibhasansagar"
 git config --global color.ui true
+git config -l
 
 git clone -q "https://${GitAllOAuth}@github.com/rokibhasansagar/google-git-cookies.git"
 bash google-git-cookies/setup_cookies.sh && rm -rf google-git-cookies
@@ -25,4 +25,8 @@ lunch omni_Primo_RX5-userdebug
 
 make -j$(nproc --all) recoveryimage
 
-ghr -t ${GitAllOAuth} -n "Test Release for Primo_RX5" -b "PBRP v2.9.0" -delete v1.0-test "out/target/product/Primo_RX5/PitchBlack*.zip"
+mkdir release
+cp -a /github/workspace/pbrp/out/target/product/Primo_RX5/recovery.img release/
+cp -a /github/workspace/pbrp/out/target/product/Primo_RX5/PitchBlack-Go-Primo_RX5-2.9.0-20191212-1142-UNOFFICIAL.zip release/
+
+ghr -t ${GitAllOAuth} -n "Test Release for Primo_RX5" -b "PBRP v2.9.0" -delete v1.0-test release/
