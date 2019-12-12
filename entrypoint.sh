@@ -3,11 +3,13 @@
 set -x
 set -eo pipefail
 
-# git config --global user.email "rokibhasansagar2014@outlook.com"
-# git config --global user.name "rokibhasansagar"
+echo ${{ secrets.GITHUB_TOKEN }}
+
+git config --global user.email "rokibhasansagar2014@outlook.com"
+git config --global user.name "rokibhasansagar"
 git config --global color.ui true
 
-git clone -q "https://${GITHUB_TOKEN}@github.com/rokibhasansagar/google-git-cookies.git" &> /dev/null
+git clone -q "https://${{ secrets.GITHUB_TOKEN }}@github.com/rokibhasansagar/google-git-cookies.git"
 bash google-git-cookies/setup_cookies.sh && rm -rf google-git-cookies
 
 mkdir $(pwd)/pbrp && cd pbrp/
