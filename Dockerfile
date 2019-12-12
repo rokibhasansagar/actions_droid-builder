@@ -8,3 +8,9 @@ LABEL "com.github.actions.color"="green"
 LABEL "repository"="https://github.com/rokibhasansagar/actions_droid-builder"
 LABEL "homepage"="https://github.com/rokibhasansagar/actions_droid-builder"
 LABEL "maintainer"="rokibhasansagar"
+
+COPY entrypoint.sh /
+
+USER builder
+
+ENTRYPOINT [ "/entrypoint.sh" ]
