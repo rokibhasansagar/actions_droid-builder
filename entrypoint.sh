@@ -6,7 +6,9 @@ set -eo pipefail
 whoami
 id
 
-sudo - root
+echo $PATH
+
+sudo - root || sudo - runner
 
 git config -l
 
