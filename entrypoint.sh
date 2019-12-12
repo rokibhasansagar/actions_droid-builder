@@ -2,9 +2,6 @@
 
 set -eu
 
-echo $(pwd)
-cd $HOME/builder
-
 git config --global user.email "rokibhasansagar2014@outlook.com"
 git config --global user.name "rokibhasansagar"
 git config --global color.ui true
