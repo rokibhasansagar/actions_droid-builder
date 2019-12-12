@@ -12,7 +12,7 @@ bash google-git-cookies/setup_cookies.sh && rm -rf google-git-cookies
 mkdir $(pwd)/pbrp && cd pbrp/
 
 repo init -q -u https://github.com/PitchBlackRecoveryProject/manifest_pb.git -b "twrp-6.0" --depth 1
-time repo sync -c --force-sync --no-clone-bundle --no-tags -j32
+time repo sync -c -q --force-sync --no-clone-bundle --no-tags -j32
 
 rm -rf device/qcom/ && rm -rf hardware/qcom/ && rm -rf device/generic/
 
@@ -24,9 +24,9 @@ lunch omni_Primo_RX5-userdebug
 
 make -j32 recoveryimage
 
-echo $(pwd)
-
 mkdir release
-mv "$(pwd)/out/target/product/Primo_RX5/recovery.img" "${PB_WORK}/${ZIP_NAME}.zip" release/
 
-ghr -t ${GitAllOAuth} -n "Test Release for Primo_RX5" -b "PBRP v2.9.0" -delete v1.0-test release/
+export OUT_ZIP=$(pwd)/out/target/product/Primo_RX5/PitchBlack*.zip
+echo ${OUT_ZIP}
+
+ghr -t ${GitAllOAuth} -n "Test Release for Primo_RX5" -b "PBRP v2.9.0" -delete v1.0-test $(OUT_ZIP)
