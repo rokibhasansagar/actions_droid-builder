@@ -3,10 +3,6 @@
 set -x
 set -eo pipefail
 
-ls -R /home/builder
-ls -R /github/home
-ls -R /github/workspace
-
 git config -l
 git config --global -l
 
