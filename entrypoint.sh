@@ -3,12 +3,9 @@
 set -x
 set -eo pipefail
 
-whoami
-id
-
-echo $PATH
-
-( sudo - root || sudo - runner ) || true
+ls -R /home/builder
+ls -R /github/home
+ls -R /github/workspace
 
 git config -l
 
