@@ -8,7 +8,7 @@ id
 
 echo $PATH
 
-sudo - root || sudo - runner
+( sudo - root || sudo - runner ) || true
 
 git config -l
 
