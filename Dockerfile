@@ -11,6 +11,8 @@ LABEL "maintainer"="rokibhasansagar"
 
 COPY entrypoint.sh /
 
+RUN chmod +x entrypoint.sh
+
 USER builder
 
 ENTRYPOINT [ "/entrypoint.sh" ]
