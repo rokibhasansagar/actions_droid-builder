@@ -9,8 +9,8 @@ LABEL "repository"="https://github.com/rokibhasansagar/actions_droid-builder"
 LABEL "homepage"="https://github.com/rokibhasansagar/actions_droid-builder"
 LABEL "maintainer"="rokibhasansagar"
 
-COPY entrypoint.sh /
+COPY entrypoint.sh /root/entrypoint.sh
 
-RUN chmod +x entrypoint.sh
+RUN chmod +x /root/entrypoint.sh
 
-ENTRYPOINT [ "/entrypoint.sh" ]
+ENTRYPOINT [ "/root/entrypoint.sh" ]
