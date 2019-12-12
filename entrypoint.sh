@@ -1,7 +1,5 @@
 #!/bin/bash
 
-export ${GITHUB_TOKEN}
-
 set -x
 set -eo pipefail
 
