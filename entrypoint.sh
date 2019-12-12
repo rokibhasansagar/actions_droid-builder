@@ -24,9 +24,8 @@ lunch omni_Primo_RX5-userdebug
 
 make -j32 recoveryimage
 
-mkdir release
-
 export OUT_ZIP=$(pwd)/out/target/product/Primo_RX5/PitchBlack*.zip
-echo ${OUT_ZIP}
+export OUT_IMG=$(pwd)/out/target/product/Primo_RX5/recovery.img
 
-ghr -t ${GitAllOAuth} -n "Test Release for Primo_RX5" -b "PBRP v2.9.0" -delete v1.0-test $(OUT_ZIP)
+ghr -t ${GitAllOAuth} -n "Test Release for Primo_RX5" -b "PBRP v2.9.0" -delete v1.1-test ${OUT_ZIP}
+ghr -t ${GitAllOAuth} -replace v1.1-test ${OUT_IMG}
