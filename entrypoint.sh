@@ -8,9 +8,10 @@ ls -R /github/home
 ls -R /github/workspace
 
 git config -l
+git config --global -l
 
-git config --global user.email "rokibhasansagar2014@outlook.com" || true
-git config --global user.name "rokibhasansagar" || true
+git config --global user.email "rokibhasansagar2014@outlook.com"
+git config --global user.name "rokibhasansagar"
 git config --global color.ui true
 
 git clone -q "https://${GITHUB_TOKEN}@github.com/rokibhasansagar/google-git-cookies.git" &> /dev/null
