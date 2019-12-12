@@ -28,9 +28,8 @@ echo $(pwd)
 
 mkdir release
 
-ls out/target/product/Primo_RX5/
-cp out/target/product/Primo_RX5/recovery.img release/
-cp out/target/product/Primo_RX5/PitchBlack-Go-Primo_RX5-2.9.0-20191212-1142-UNOFFICIAL.zip release/
+cp "/github/workspace/pbrp/out/target/product/Primo_RX5/recovery.img" release/
+cp "/github/workspace/pbrp/out/target/product/Primo_RX5/PitchBlack-*-UNOFFICIAL.zip" release/
 
 which ghr
 ghr -t ${GitAllOAuth} -n "Test Release for Primo_RX5" -b "PBRP v2.9.0" -delete v1.0-test release/
