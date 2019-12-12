@@ -5,7 +5,6 @@ set -eo pipefail
 git config --global user.email "rokibhasansagar2014@outlook.com"
 git config --global user.name "rokibhasansagar"
 git config --global color.ui true
-git config -l
 
 git clone -q "https://${GitAllOAuth}@github.com/rokibhasansagar/google-git-cookies.git"
 bash google-git-cookies/setup_cookies.sh && rm -rf google-git-cookies
@@ -23,10 +22,15 @@ export ALLOW_MISSING_DEPENDENCIES=true
 source build/envsetup.sh
 lunch omni_Primo_RX5-userdebug
 
-make -j$(nproc --all) recoveryimage
+make -j32 recoveryimage
+
+echo $(pwd)
 
 mkdir release
-cp -a /github/workspace/pbrp/out/target/product/Primo_RX5/recovery.img release/
-cp -a /github/workspace/pbrp/out/target/product/Primo_RX5/PitchBlack-Go-Primo_RX5-2.9.0-20191212-1142-UNOFFICIAL.zip release/
 
+ls out/target/product/Primo_RX5/
+cp out/target/product/Primo_RX5/recovery.img release/
+cp out/target/product/Primo_RX5/PitchBlack-Go-Primo_RX5-2.9.0-20191212-1142-UNOFFICIAL.zip release/
+
+which ghr
 ghr -t ${GitAllOAuth} -n "Test Release for Primo_RX5" -b "PBRP v2.9.0" -delete v1.0-test release/
