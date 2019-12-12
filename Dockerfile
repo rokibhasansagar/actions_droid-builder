@@ -13,6 +13,6 @@ COPY entrypoint.sh /
 
 RUN chmod +x entrypoint.sh
 
-USER builder
+USER root
 
 ENTRYPOINT [ "/entrypoint.sh" ]
